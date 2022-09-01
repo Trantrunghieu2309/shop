@@ -1,0 +1,237 @@
+/* Mobile and Tablet  */
+@media (max-width: 1023px) {
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    .app__container {
+        margin-top: calc(var(--header-height) + var(--header-sort-bar-height));
+    }
+
+    .header__cart-list {
+        width: 100%;
+        position: fixed;
+        top: var(--header-height);
+        right: 0px;
+        padding: 0 calc((100% - 644px) / 2);
+    }
+
+    .header__cart-item-name {
+        max-width: 300px;
+    }
+
+    .header__cart-list::after {
+        display: none;
+    }
+
+    .header__cart-item-trash {
+        display: block;
+    }
+
+    .header__sort-bar {
+        display: flex;
+    }
+
+    .app__content {
+        padding-top: 8px;
+    }
+
+    .mobile-category {
+        display: block;
+    }
+}
+
+/* Tablet  */
+@media (min-width:740px) and (max-width: 1023px) {
+    :root {
+        --header-height: 68px;
+        --navbar-height: 0px;
+    }
+
+    .hide-on-tablet {
+        display: none;
+    }
+
+    .header__cart {
+        width: 60px;
+        text-align: right;
+        margin-left: 16px;
+    }
+
+    .header__logo {
+        width: 100px;
+        margin-right: 16px;
+    }
+
+    .header__logo-img {
+        width: 105px;
+    }
+}
+
+/* Mobile  */
+@media (max-width: 739px) {
+    :root {
+        --header-height: 54px;
+        --navbar-height: 0px;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .header-with-search {
+        justify-content: space-between;
+        margin: 0 16px;
+    }
+
+    .header-with-info {
+        display: flex;
+    }
+
+    .header__cart-notice {
+        right: 0;
+    }
+
+    .header__cart-item-name {
+        max-width: 180px;
+    }
+
+    .header__cart,
+    .header__logo {
+        width: unset;
+    }
+
+    .header__cart-icon {
+        font-size: 2.8rem;
+    }
+
+    .header__cart-wrap {
+        padding: 0;
+    }
+
+    .header__logo-img {
+        width: 140px;
+    }
+
+    .header__search-checkbox:checked~.header__search {
+        display: flex;
+    }
+
+    .header__search {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        height: 46px;
+        z-index: 1;
+        padding: 0 16px;
+        animation: mobileSearchSideIn linear 0.2s;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        display: none;
+    }
+
+    .header__search-history {
+        position: fixed;
+        top: calc(var(--header-height) + var(--header-sort-bar-height));
+        width: 100%;
+        left: 0;
+    }
+
+    .pagination-item {
+        margin: 0;
+    }
+
+    .pagination-item__link {
+        --height: 28px;
+        font-size: 1.6rem;
+        min-width: 36px;
+        height: var(--height);
+        line-height: var(--height);
+    }
+
+    .app__content {
+        margin: 0 4px;
+    }
+
+    .footer__content {
+        padding: 0 16px;
+    }
+
+    .footer__heading {
+        text-align: center;
+    }
+
+    .footer-item__link {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .footer__download {
+        justify-content: center;
+    }
+
+    .footer__download-app-img {
+        display: block;
+        padding: 6px 4px;
+        height: 35px;
+    }
+
+    @keyframes mobileSearchSideIn {
+        from {
+            opacity: 0;
+            height: 0;
+        }
+
+        to {
+            opacity: 1;
+            height: 46px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .header__logo-img {
+        width: 100px;
+    }
+
+    .header__navbar-menu-icon {
+        font-size: 2.2rem;
+    }
+
+    .header__mobile-search-icon {
+        font-size: 2rem;
+    }
+
+    .header__cart-icon {
+        font-size: 2.2rem;
+    }
+
+    .header__cart-notice {
+        font-size: 1rem;
+    }
+
+    .header-menu-item-link {
+        font-size: 1.8rem;
+    }
+
+    .header__cart-item-name {
+        max-width: 110px;
+    }
+
+    .header-menu-item-icon {
+        font-size: 2.4rem;
+    }
+
+}

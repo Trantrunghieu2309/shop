@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/reponsive.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.2-web/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +21,9 @@
 <body>
     <div class="app">
         <header class="header">
-            <div class="grid">
-                <nav class="header__navbar">
+            <div class="grid wide">
+
+                <nav class="header__navbar hide-on-mobile-tablet">
                     <ul class="header__navbar-list">
                         <li class="header__navbar-item header__navbar-item-has-qr header__navbar-item-separate">
                             Vào cửa hàng trên ứng dụng F8
@@ -133,6 +136,16 @@
 
                 <!-- header with search  -->
                 <div class="header-with-search">
+                    <div class="header-with-info">
+                        <label for="header-menu-input" class="header__navbar-menu">
+                            <i class="header__navbar-menu-icon fa-solid fa-bars"></i>
+                        </label>
+
+                        <label for="mobile-search-checkbox" class="header__mobile-search">
+                            <i class="header__mobile-search-icon fa-solid fa-magnifying-glass"></i>
+                        </label>
+                    </div>
+
                     <div class="header__logo">
                         <a href="/" class="header__logo-link">
                             <svg viewBox="0 0 192 65" class="header__logo-img">
@@ -145,6 +158,7 @@
                         </a>
                     </div>
 
+                    <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
                     <div class="header__search">
                         <div class="header__search-input-wrap">
                             <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
@@ -217,7 +231,10 @@
                                                 <span class="header__cart-item-description">
                                                     Phân loại: Laptop
                                                 </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
+                                                <span class="header__cart-item-remove hide-on-mobile-tablet">Xóa</span>
+                                                <div class="header__cart-item-trash">
+                                                    <i class="header__cart-item-trash-icon fa-solid fa-trash"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </li>
@@ -240,7 +257,11 @@
                                                 <span class="header__cart-item-description">
                                                     Phân loại: Laptop
                                                 </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
+                                                <span class="header__cart-item-remove hide-on-mobile-tablet">Xóa</span>
+                                                <div class="header__cart-item-trash">
+                                                    <i class="header__cart-item-trash-icon fa-solid fa-trash"></i>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </li>
@@ -263,10 +284,13 @@
                                                 <span class="header__cart-item-description">
                                                     Phân loại: Laptop
                                                 </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
+                                                <span class="header__cart-item-remove hide-on-mobile-tablet">Xóa</span>
+                                                <div class="header__cart-item-trash">
+                                                    <i class="header__cart-item-trash-icon fa-solid fa-trash"></i>
+                                                </div>
                                             </div>
                                         </div>
-                                    </li>                  
+                                    </li>
                                 </ul>
                                 <a href="" class="header__cart-view-cart btn btn--primary ">Xem giỏ hàng</a>
                             </div>
@@ -275,12 +299,67 @@
 
                 </div>
             </div>
+
+            <div class="header__sort-bar">
+                <div class="grid wide">
+                    <div class="row">
+                        <span class="col l-0 m-3 c-3 header__sort-item">
+                            <a href="" class="header__sort-link">Liên quan</a>
+                        </span>
+
+                        <span class="col l-0 m-3 c-3 header__sort-item header__sort-item--active">
+                            <a href="" class="header__sort-link">Mới nhất</a>
+                        </span>
+
+                        <span class="col l-0 m-3 c-3 header__sort-item">
+                            <a href="" class="header__sort-link">Bán chạy</a>
+                        </span>
+
+                        <span class="col l-0 m-3 c-3 header__sort-item">
+                            <a href="" class="header__sort-link">Giá</a>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- header menu  -->
+            <input type="checkbox" hidden name="" id="header-menu-input" class="header-menu-input--active">
+            <label for="header-menu-input" class="overlay"></label>
+            <div class="header-menu">
+                <ul class="header-menu-list">
+                    <li class="header-menu-item">
+                        <a href="" class="header-menu-item-link">
+                            <i class="header-menu-item-icon fa-solid fa-house-user"></i>
+                            Trang chủ
+                        </a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a href="" class="header-menu-item-link">
+                            <i class="header-menu-item-icon fa-solid fa-user"></i>
+                            Thông tin cá nhân
+                        </a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a href="" class="header-menu-item-link">
+                            <i class="header-menu-item-icon fa-solid fa-phone"></i>
+                            Liên hệ
+                        </a>
+                    </li>
+                    <li class="header-menu-item">
+                        <a href="" class="header-menu-item-link">
+                            <i class="header-menu-item-icon fa-solid fa-right-from-bracket"></i>
+                            Đăng xuất
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </header>
 
         <div class="app__container">
-            <div class="grid">
-                <div class="grid__row app__content">
-                    <div class="grid__column-2">
+            <div class="grid wide">
+                <div class="row sm-gutter app__content">
+                    <div class="col l-2 m-0 c-0">
                         <nav class="category">
                             <h3 class="category__heading">
                                 <i class="fa-solid fa-list category__heading-icon"></i>
@@ -309,8 +388,8 @@
                         </nav>
                     </div>
 
-                    <div class="grid__column-10">
-                        <div class="home-filter">
+                    <div class="col l-10 m-12 c-12">
+                        <div class="home-filter hide-on-mobile-tablet">
                             <span class="home-filter__label">Sắp xếp theo</span>
                             <button class="home-filter__btn btn">Phổ biến</button>
                             <button class="home-filter__btn btn btn--primary">Mới nhất</button>
@@ -348,15 +427,81 @@
 
                         </div>
 
+                        <nav class="mobile-category">
+                            <ul class="mobile-category__list">
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Led màu màn hình & nháy theo nhạc
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
                         <div class="home-product">
-                            <!-- Grid -> row -> column -->
-                            <div class="grid__row">
+                            <div class="row sm-gutter">
                                 <!-- product item  -->
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/709f897cc12afd2afa8f59ed89621da4);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/709f897cc12afd2afa8f59ed89621da4);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn led Ambilight USB theo màu màn hình kết hợp 100 hiệu ứng nháy theo nhạc (Hàng chất lượng)
+                                            [CHÍNH HÃNG] Đèn led Ambilight USB theo màu màn hình kết hợp 100 hiệu ứng
+                                            nháy theo nhạc (Hàng chất lượng)
                                         </h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-old">430.430đ</span>
@@ -386,7 +531,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -394,14 +539,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/78e03b3a2abbeccb8dfd2b4ee749b6c3);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/78e03b3a2abbeccb8dfd2b4ee749b6c3);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn Led Ambilight WiFi theo màu màn hình không cần cắm dây usb siêu mượt (60hz) + cực nhẹ (ít hơn 1% cpu)
+                                            [CHÍNH HÃNG] Đèn Led Ambilight WiFi theo màu màn hình không cần cắm dây usb
+                                            siêu mượt (60hz) + cực nhẹ (ít hơn 1% cpu)
                                         </h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-old">1.108.890đ</span>
@@ -431,7 +579,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -439,14 +587,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/8b95dfa129ba0e503dfedc56355ccdea);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/8b95dfa129ba0e503dfedc56355ccdea);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            []Đèn Led Thanh lắp ghép - Lightning Led - 120 hiệu ứng mầu,100 hiệu ứng nhạc cảm biến (Appstore/Chplay)
+                                            []Đèn Led Thanh lắp ghép - Lightning Led - 120 hiệu ứng mầu,100 hiệu ứng
+                                            nhạc cảm biến (Appstore/Chplay)
                                         </h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-old">399.000đ</span>
@@ -476,7 +627,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -484,14 +635,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/351c57994a023d48c99bdf3be9e968ea);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/351c57994a023d48c99bdf3be9e968ea);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn led dán bàn 120 hiệu ứng mầu + 100 hiệu ứng nháy nhạc WiFi (app RML Ecosystem trên Appstore/CHplay)
+                                            [CHÍNH HÃNG] Đèn led dán bàn 120 hiệu ứng mầu + 100 hiệu ứng nháy nhạc WiFi
+                                            (app RML Ecosystem trên Appstore/CHplay)
                                         </h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-old">2.190.370đ</span>
@@ -521,7 +675,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -529,12 +683,14 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/df084ed085fb2dea6487b6f60fe4a538);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/df084ed085fb2dea6487b6f60fe4a538);">
+                                        </div>
                                         <h4 class="home-product-item__name">
                                             Băng dính silicon 2 mặt
                                         </h4>
@@ -566,7 +722,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -574,14 +730,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/586f8825314db2fc6f1369cc08f10067);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/586f8825314db2fc6f1369cc08f10067);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn led dán bàn 40 hiệu ứng mầu + 100 hiệu ứng nháy nhạc cho PC - USB Led Studio (có app trên điện thoại)
+                                            [CHÍNH HÃNG] Đèn led dán bàn 40 hiệu ứng mầu + 100 hiệu ứng nháy nhạc cho PC
+                                            - USB Led Studio (có app trên điện thoại)
                                         </h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-old">679.200đ</span>
@@ -611,7 +770,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -619,12 +778,14 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/5f71a77dcbc6e3025c4f5c6e60e52b1e);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/5f71a77dcbc6e3025c4f5c6e60e52b1e);">
+                                        </div>
                                         <h4 class="home-product-item__name">
                                             [CHÍNH HÃNG] Đèn led chuyển động theo nhạc - Rainbow music led
                                         </h4>
@@ -656,7 +817,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -664,12 +825,14 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/6c61e2c945ad6fb1dab202417416424c);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/6c61e2c945ad6fb1dab202417416424c);">
+                                        </div>
                                         <h4 class="home-product-item__name">
                                             [CHÍNH HÃNG] Hộp máy chủ Box server quét màu hình ảnh cho Ambilight WiFi
                                         </h4>
@@ -701,7 +864,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -709,14 +872,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/6d794192f33bdf93bb85df5913da2c76);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/6d794192f33bdf93bb85df5913da2c76);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn Nanoleaf Happa Light lắp ghép, dầy 1cm - 120 hiệu ứng + Đồng bộ màu màn hình + Nháy nhạc cảm biến âm
+                                            [CHÍNH HÃNG] Đèn Nanoleaf Happa Light lắp ghép, dầy 1cm - 120 hiệu ứng +
+                                            Đồng bộ màu màn hình + Nháy nhạc cảm biến âm
                                         </h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-old">2.999.999đ</span>
@@ -746,7 +912,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -754,14 +920,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/40bd3e8a79320390a7f9dd79cfd74657);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/40bd3e8a79320390a7f9dd79cfd74657);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn xoắn ốc - 120 hiệu ứng mầu + 15 hiệu ứng nháy nhạc mic cảm biến + 100 hiệu ứng nháy nhạc PC
+                                            [CHÍNH HÃNG] Đèn xoắn ốc - 120 hiệu ứng mầu + 15 hiệu ứng nháy nhạc mic cảm
+                                            biến + 100 hiệu ứng nháy nhạc PC
                                         </h4>
                                         <div class="home-product-item__price">
                                             <!-- <span class="home-product-item__price-old">430.430đ</span> -->
@@ -791,7 +960,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <!-- <div class="home-product-item__sale-off">
@@ -799,14 +968,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div> -->
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/55589eaffc748e153d0d7bad2d6fe89b);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/55589eaffc748e153d0d7bad2d6fe89b);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn Tre Việt Nam Bammboo Leds - 120 hiệu ứng mầu + 100 hiệu ứng nháy nhạc mic cảm biến hoặc máy tính
+                                            [CHÍNH HÃNG] Đèn Tre Việt Nam Bammboo Leds - 120 hiệu ứng mầu + 100 hiệu ứng
+                                            nháy nhạc mic cảm biến hoặc máy tính
                                         </h4>
                                         <div class="home-product-item__price">
                                             <!-- <span class="home-product-item__price-old">430.430đ</span> -->
@@ -836,7 +1008,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <!-- <div class="home-product-item__sale-off">
@@ -844,14 +1016,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div> -->
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/3b3f99d1d3b598107ba497fc7569dcea);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/3b3f99d1d3b598107ba497fc7569dcea);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn búa Thor - 120 hiệu ứng mầu + 15 hiệu ứng nháy nhạc mic cảm biến + 75 hiệu ứng nháy nhạc PC
+                                            [CHÍNH HÃNG] Đèn búa Thor - 120 hiệu ứng mầu + 15 hiệu ứng nháy nhạc mic cảm
+                                            biến + 75 hiệu ứng nháy nhạc PC
                                         </h4>
                                         <div class="home-product-item__price">
                                             <span class="home-product-item__price-old">739.000đ</span>
@@ -881,7 +1056,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <div class="home-product-item__sale-off">
@@ -889,14 +1064,17 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
-                                    
+
                                 </div>
 
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="/">
-                                        <div class="home-product-item__img" style="background-image: url(https://cf.shopee.vn/file/75706a943ab4a5e945b5f2857c6562a2);"></div>
+                                        <div class="home-product-item__img"
+                                            style="background-image: url(https://cf.shopee.vn/file/75706a943ab4a5e945b5f2857c6562a2);">
+                                        </div>
                                         <h4 class="home-product-item__name">
-                                            [CHÍNH HÃNG] Đèn Led Bar - 120 hiệu ứng mầu + 15 hiệu ứng nháy nhạc mic cảm biến + 100 hiệu ứng nháy nhạc PC
+                                            [CHÍNH HÃNG] Đèn Led Bar - 120 hiệu ứng mầu + 15 hiệu ứng nháy nhạc mic cảm
+                                            biến + 100 hiệu ứng nháy nhạc PC
                                         </h4>
                                         <div class="home-product-item__price">
                                             <!-- <span class="home-product-item__price-old">430.430đ</span> -->
@@ -926,7 +1104,7 @@
 
                                         <div class="home-product-item__favorite">
                                             <i class="fa-solid fa-check"></i>
-                                            <span>Yêu thích</span> 
+                                            <span>Yêu thích</span>
                                         </div>
 
                                         <!-- <div class="home-product-item__sale-off">
@@ -934,7 +1112,7 @@
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div> -->
                                     </a>
-                                    
+
                                 </div>
 
                             </div>
@@ -962,12 +1140,14 @@
                             </li>
                             <li class="pagination-item">
                                 <a href="" class="pagination-item__link">5</a>
-                            </li><li class="pagination-item">
+                            </li>
+                            <li class="pagination-item">
                                 <a href="" class="pagination-item__link pagination-item__link--non-click">...</a>
-                            </li><li class="pagination-item">
+                            </li>
+                            <li class="pagination-item">
                                 <a href="" class="pagination-item__link">14</a>
                             </li>
-                            
+
                             <li class="pagination-item">
                                 <a href="" class="pagination-item__link">
                                     <i class="pagination-item__icon fa-solid fa-angle-right"></i>
@@ -980,9 +1160,9 @@
         </div>
 
         <footer class="footer">
-            <div class="grid">
-                <div class="grid__row footer__surround">
-                    <div class="grid__column-2-4">
+            <div class="grid wide footer__content">
+                <div class="row footer__surround">
+                    <div class="col l-2-4 m-4 c-6 ">
                         <h3 class="footer__heading">Chăm sóc khách hàng</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -996,7 +1176,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6 ">
                         <h3 class="footer__heading">Giới thiệu</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -1010,11 +1190,11 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6 ">
                         <h3 class="footer__heading">Danh mục</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
-                                <a href="" class="footer-item__link">Led màu màn hình & nháy theo nhạc</a>
+                                <a href="" class="footer-item__link">Led màu màn hình</a>
                             </li>
                             <li class="footer-item">
                                 <a href="" class="footer-item__link">Đèn di động</a>
@@ -1025,18 +1205,15 @@
                             <li class="footer-item">
                                 <a href="" class="footer-item__link">Đèn để bàn</a>
                             </li>
-                            <li class="footer-item">
-                                <a href="" class="footer-item__link">All led</a>
-                            </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6 ">
                         <h3 class="footer__heading">Theo dõi</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
                                 <a href="" class="footer-item__link">
                                     <i class="footer-item__icon fa-brands fa-facebook"></i>
-                                    <span>Facebook</span> 
+                                    <span>Facebook</span>
                                 </a>
                             </li>
                             <li class="footer-item">
@@ -1053,26 +1230,27 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-8 c-12">
                         <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
                         <div class="footer__download">
                             <img src="/assets/img/qr_code.png" alt="Download QR" class="footer__download-qr">
                             <div class="footer__download-apps">
                                 <a href="" class="footer__download-app-link mb-10">
-                                    <img src="/assets/img/google_play.png" alt="Google Play" class="footer__download-app-img">
+                                    <img src="/assets/img/google_play.png" alt="Google Play"
+                                        class="footer__download-app-img">
                                 </a>
                                 <a href="" class="footer__download-app-link">
-                                <img src="/assets/img/appstore.png" alt="Appstore" class="footer__download-app-img">
-                            </a>
+                                    <img src="/assets/img/appstore.png" alt="Appstore" class="footer__download-app-img">
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="footer__bottom">
-                <div class="grid">
-                    <div class="grid__row ">
+                <div class="grid wide">
+                    <div class="row">
                         <p class="footer__text">© 2022 - Bản quyền thuộc về Công ty TTH</p>
                     </div>
                 </div>
